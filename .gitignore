@@ -40,13 +40,15 @@ ENV/
 logs/
 *.log
 
-# Audio files (except prompts)
+# Audio files (all generated files - use scripts/setup_audio.py to regenerate)
 audio/recordings/
 audio/generated/
+audio/prompts/*.wav
+audio/meow_samples/*.wav
+audio/cats/*.wav
 *.wav
 *.mp3
 *.ogg
-!audio/prompts/*.wav
 
 # Models (too large for git)
 models/
