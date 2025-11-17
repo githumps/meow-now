@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     sox \
     libsox-fmt-all \
     portaudio19-dev \
+    espeak-ng \
     git \
     wget \
     && rm -rf /var/lib/apt/lists/*
