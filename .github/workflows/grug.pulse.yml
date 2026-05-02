@@ -2,7 +2,9 @@ name: Grug · weekly pulse
 
 # Mondays 13:00 UTC — opens an issue summarizing iteration health.
 # Filterable later via label `grug-pulse`. Auto-adds the issue to
-# the maintainer's Grugboard project (Triage column).
+# the maintainer's Grugboard project (Triage column) via direct
+# GraphQL mutation (gh CLI owner-probe bypassed; needed only `project`
+# scope on the PAT).
 
 on:
   schedule:
@@ -23,8 +25,7 @@ jobs:
     with:
       issue_label: "grug-pulse"
       mode: "weekly"
-      project_owner: "githumps"
-      project_number: 1
+      project_id: "PVT_kwHOA4Uvvc4A8kYP"  # Grugboard
       project_status_field_id: "PVTSSF_lAHOA4Uvvc4A8kYPzgwh4fE"
       project_status_option_id: "3e0a104b"  # Triage
     secrets:
