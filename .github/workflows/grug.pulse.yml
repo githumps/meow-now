@@ -1,7 +1,8 @@
 name: Grug · weekly pulse
 
 # Mondays 13:00 UTC — opens an issue summarizing iteration health.
-# Filterable later via label `grug-pulse`.
+# Filterable later via label `grug-pulse`. Auto-adds the issue to
+# the maintainer's Grugboard project (Triage column).
 
 on:
   schedule:
@@ -11,15 +12,21 @@ on:
 permissions:
   contents: read
   issues: write
+  # Sentry MEDIUM on PR #316: stuck-PR computation needs read access.
   pull-requests: read
 
 jobs:
   pulse:
     name: Grug · pulse
+    # See grug.pr-gate.yml note on @main pinning.
     uses: githumps/grug/.github/workflows/_reusable.grug-pulse.yml@main
     with:
       issue_label: "grug-pulse"
       mode: "weekly"
+      project_owner: "githumps"
+      project_number: 1
+      project_status_field_id: "PVTSSF_lAHOA4Uvvc4A8kYPzgwh4fE"
+      project_status_option_id: "3e0a104b"  # Triage
     secrets:
       poolside_api_key: ${{ secrets.POOLSIDE_API_KEY }}
-      grugboard_pat: ${{ secrets.GRUGBOARD_PROJECT_TOKEN }}
+      project_pat: ${{ secrets.GRUGBOARD_PROJECT_TOKEN }}
