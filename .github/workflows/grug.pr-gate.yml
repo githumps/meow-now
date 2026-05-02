@@ -1,0 +1,23 @@
+name: Grug · PR DoR check
+
+# Calls the reusable Grug workflow at githumps/grug (public). Static
+# checks are advisory by default for fresh rollout (strict: false). Flip
+# to strict: true once the repo's PR template aligns with DoR.
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  grug:
+    name: Grug · DoR check
+    uses: githumps/grug/.github/workflows/_reusable.grug-pr-gate.yml@main
+    with:
+      strict: false
+    secrets:
+      poolside_api_key: ${{ secrets.POOLSIDE_API_KEY }}
