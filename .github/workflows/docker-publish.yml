@@ -1,9 +1,8 @@
 name: Build and Publish Docker Images
 
-# Multi-arch (amd64+arm64) image build via the #835 container-build-multiarch
-# reusable in the PUBLIC githumps/infra-public repo (meow-now is public →
-# can't call the private infrastructure repo). NATIVE per-arch builds — NO
-# setup-qemu. PR = build-only validation; push main/tag = build + push manifest.
+# Multi-arch (amd64+arm64) image build via the shared container-build-multiarch
+# reusable in githumps/infra-public. NATIVE per-arch builds — NO setup-qemu.
+# PR = build-only validation; push main/tag = build + push manifest.
 
 on:
   push:
@@ -35,7 +34,7 @@ jobs:
 
   build:
     needs: meta
-    uses: githumps/infra-public/.github/workflows/_reusable.container-build-multiarch.yml@c05886465e0de3b288ef356ae260a974cf7c3cff  # infra-public main; bump deliberately
+    uses: githumps/infra-public/.github/workflows/_reusable.container-build-multiarch.yml@d77dce3e0096674024e25c937e63addde7e86401  # infra-public main; bump deliberately
     with:
       image: ghcr.io/${{ github.repository }}
       tag: ${{ needs.meta.outputs.tag }}
