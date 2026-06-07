@@ -34,7 +34,7 @@ jobs:
 
   build:
     needs: meta
-    uses: githumps/infra-public/.github/workflows/_reusable.container-build-multiarch.yml@41038951557478badb69ca2c34217f75825cfc2e  # infra-public main; bump deliberately
+    uses: githumps/infra-public/.github/workflows/build.container-multiarch.yml@cd83e5727c0a7b904f780960664a51b3a3a0c685  # infra-public main; bump deliberately
     with:
       image: ghcr.io/${{ github.repository }}
       tag: ${{ needs.meta.outputs.tag }}
