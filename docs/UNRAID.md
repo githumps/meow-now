@@ -20,13 +20,13 @@ mkdir -p /mnt/user/appdata/meow-now/{audio,logs,models,asterisk}
 
 # 2. Download configuration
 cd /mnt/user/appdata/meow-now
-wget https://raw.githubusercontent.com/githumps/meow-now/main/docker-compose.unraid.yml -O docker-compose.yml
-wget https://raw.githubusercontent.com/githumps/meow-now/main/.env.example -O .env
+wget https://raw.githubusercontent.com/quadseven/meow-now/main/docker-compose.unraid.yml -O docker-compose.yml
+wget https://raw.githubusercontent.com/quadseven/meow-now/main/.env.example -O .env
 
 # 3. Copy Asterisk config
 mkdir -p asterisk/config
 cd /tmp
-git clone https://github.com/githumps/meow-now.git
+git clone https://github.com/quadseven/meow-now.git
 cp -r meow-now/config/asterisk/* /mnt/user/appdata/meow-now/asterisk/config/
 
 # 4. Edit configuration
@@ -50,7 +50,7 @@ docker exec -it meow-now python scripts/setup_audio.py
 
 ```
 Name: MeowNow
-Repository: ghcr.io/githumps/meow-now:latest
+Repository: ghcr.io/quadseven/meow-now:latest
 Network Type: bridge
 
 Port Mappings:
@@ -378,7 +378,7 @@ docker-compose restart
 
 1. Template is available at: `unraid-template.xml`
 2. Icon available at: `docs/icon.png`
-3. Repository: `ghcr.io/githumps/meow-now`
+3. Repository: `ghcr.io/quadseven/meow-now`
 
 **For CA admins:**
 - Category: Tools
@@ -416,12 +416,12 @@ docker-compose up -d
 ## Support
 
 **Documentation:**
-- Main README: https://github.com/githumps/meow-now
+- Main README: https://github.com/quadseven/meow-now
 - Deployment Guide: DEPLOYMENT.md
 - Architecture: ARCHITECTURE.md
 
 **Get Help:**
-- GitHub Issues: https://github.com/githumps/meow-now/issues
+- GitHub Issues: https://github.com/quadseven/meow-now/issues
 - Unraid Forums: Coming soon
 
 **Logs Location:**

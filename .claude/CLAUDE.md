@@ -295,9 +295,9 @@ ls -lh audio/meow_samples/
 - Pull requests (build only, no push)
 
 **Outputs:**
-- `ghcr.io/githumps/meow-now:latest`
-- `ghcr.io/githumps/meow-now:v1.0.0`
-- `ghcr.io/githumps/meow-now:main`
+- `ghcr.io/quadseven/meow-now:latest`
+- `ghcr.io/quadseven/meow-now:v1.0.0`
+- `ghcr.io/quadseven/meow-now:main`
 
 **Architectures:**
 - linux/amd64 (x86_64)
